@@ -65,44 +65,62 @@ TO DO
 			width:100%;
 		}
 	</style>
-
   </head>
 
   <body>
-
+  	<!-- Calculator interface -->
 	<table>
 		<tr>
 			<td id="display" colspan="4"></td>
 		</tr>
 		<tr>
-			<td><button>7</button></td>
-		    <td><button>8</button></td>
-		    <td><button>9</button></td>
-		    <td><button>/</button></td>
+			<td><button value="7" onclick="display(this.value)">7</button></td>
+		    <td><button value="8" onclick="display(this.value)">8</button></td>
+		    <td><button value="9" onclick="display(this.value)">9</button></td>
+		    <td><button value="/" onclick="display(this.value)">/</button></td>
 		</tr>
 		<tr>
-		  	<td><button>4</button></td>
-		    <td><button>5</button></td>
-		    <td><button>6</button></td>
-		    <td><button>*</button></td>
+		  	<td><button value="4" onclick="display(this.value)">4</button></td>
+		    <td><button value="5" onclick="display(this.value)">5</button></td>
+		    <td><button value="6" onclick="display(this.value)">6</button></td>
+		    <td><button value="*" onclick="display(this.value)">*</button></td>
 		</tr>
 		<tr>
-		  	<td><button>1</button></td>
-		    <td><button>2</button></td>
-		    <td><button>3</button></td>
-		    <td><button>-</button></td>
+		  	<td><button value="1" onclick="display(this.value)">1</button></td>
+		    <td><button value="2" onclick="display(this.value)">2</button></td>
+		    <td><button value="3" onclick="display(this.value)">3</button></td>
+		    <td><button value="4" onclick="display(this.value)">-</button></td>
 		</tr>
 		<tr>
-		  	<td><button>0</button></td>
-		    <td><button>.</button></td>
-		    <td><button>=</button></td>
-		    <td><button>+</button></td>
+		  	<td><button value="0" onclick="display(this.value)">0</button></td>
+		    <td><button value="." onclick="display(this.value)">.</button></td>
+		    <td><button value="=" onclick="eval()">=</button></td>
+		    <td><button value="+" onclick="display(this.value)">+</button></td>
 		</tr>
 		<tr>
-			<td id="reset" colspan="4"><button>RESET</button></td>
+			<td id="reset" colspan="4"><button onclick="reset()">RESET</button></td>
 		</tr>
 	</table>
-
   </body>
+
+  <!-- JS Functionality -->
+  <script type="text/javascript">
+  	// Render values to display
+  	function display(value){
+  		// console.log(value);
+  		document.getElementById('display').insertAdjacentHTML('beforeend',value);
+  	}
+
+
+  	// Evaluate value from display + display answer
+
+
+  	// Reset display
+  	function reset(){
+  		document.getElementById('display').innerHTML='';
+  	}
+
+
+  </script>
 </html>
 
