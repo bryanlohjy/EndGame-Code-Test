@@ -41,87 +41,12 @@ TO DO
     <title>Simple Calculator</title>
     <!-- Loading Font -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
+
+	<!-- Stylesheet-->
+	<link href="css/styles.css" rel="stylesheet">
     <!-- Styles -->
 	<style>
-		*{
-			padding:0;
-			margin:0;
-			font-family: "Roboto Mono", "Arial", sans-serif;
-		}
-		html{
-			height:100%;
-			background: radial-gradient(600px, #6966c1, #434265);
-			background-repeat: no-repeat;
-		}
-		table{
-		    background-color: #fafafa;
-    		box-shadow: 0px 6px 6px rgba(0,0,0,0.2);
-		    border-radius: 4px;
-			width:150px;
-			margin:100px auto;
-			padding:3px;
 
-		}
-		#display{
-			height:30px;
-			background-color: rgba(0,0,0,0.6);
-			color:white;
-			text-align: right;
-		}
-		#reset{
-			height:30px;
-		}
-		td button {
-			border-radius: 5px;
-			background-color: rgba(220,220,220, 0.6);
-		    border: none;
-		    padding: 2px 15px;
-		    margin: 4px 0px;
-		    height: 100%;
-		    width: 100%;
-		    cursor:pointer;
-		}
-
-		td button:hover {
-			background-color: rgba(220,220,220, 0.8);
-		}
-
-		td button:active {
-			background-color: rgba(220,220,220, 1.0);
-		}
-
-		.operator {
-			background-color: rgba(0,0,0,0.6);
-			color:white;
-		}
-		.operator:hover {
-			background-color: rgba(0,0,0,0.8);
-		}
-		.operator:active {
-			background-color: rgba(0,0,0,1.0);
-		}
-
-		#reset {
-			background-color: rgba(189,0,0,0.6);
-			color:white;
-		}
-		#reset:hover {
-			background-color: rgba(189,0,0,0.8);
-		}
-		#reset:active {
-			background-color: rgba(189,0,0,1.0);
-		}
-
-		#equal {
-			background-color: rgba(139,195,74,0.6);
-			color:white;
-		}
-		#equal:hover {
-			background-color: rgba(139,195,74,0.8);
-		}
-		#equal:active {
-			background-color: rgba(139,195,74,1.0);
-		}
 	</style>
   </head>
 
@@ -162,40 +87,6 @@ TO DO
   </body>
 
   <!-- JS Functionality -->
-  <script type="text/javascript">
-  	// Render values to display
-  	function display(value){
-  		// console.log(value);
-  		document.getElementById('display').insertAdjacentHTML('beforeend',value);
-  		cappingChar();
-  	}
-
-  	// Evaluate value from display + display answer
-  	function evalAns(){
-  		// evaluating data 
-  		var solution = eval(document.getElementById('display').innerHTML);
-  		// displaying calculations
-  		document.getElementById('display').innerHTML = solution;
-  		// Capping to a set number of characters
-  		cappingChar();
-  	}
-
-  	// Reset display
-  	function reset(){
-  		document.getElementById('display').innerHTML='';
-  	}
-
-  	// setting max character display
-  	function cappingChar(){
-  		// defininf limit of characters to be displayed
-  		var maxCharDisplay = 16;
-  		var displayString = document.getElementById('display').innerHTML;
-  		// check to see if the display exceeds max display. If so, the function removes the characters exceeding the limit
-  		if(displayString.length > maxCharDisplay){
-  			displayString = displayString.substring(0,maxCharDisplay);
-  			document.getElementById('display').innerHTML = displayString;
-  		}
-  	}
-  </script>
+  <script src="js/calculator.js" type="text/javascript"></script>
 </html>
 
