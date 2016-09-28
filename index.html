@@ -39,30 +39,88 @@ TO DO
   <head>
     <meta charset="UTF-8">
     <title>Simple Calculator</title>
-
+    <!-- Loading Font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
     <!-- Styles -->
 	<style>
 		*{
 			padding:0;
 			margin:0;
+			font-family: "Roboto Mono", "Arial", sans-serif;
+		}
+		html{
+			height:100%;
+			background: radial-gradient(600px, #6966c1, #434265);
+			background-repeat: no-repeat;
 		}
 		table{
+		    background-color: #fafafa;
+    		box-shadow: 0px 6px 6px rgba(0,0,0,0.2);
+		    border-radius: 4px;
 			width:150px;
 			margin:100px auto;
-			border:2px solid grey;
 			padding:3px;
+
 		}
 		#display{
 			height:30px;
-			border:1px solid grey;
+			background-color: rgba(0,0,0,0.6);
+			color:white;
+			text-align: right;
 		}
 		#reset{
 			height:30px;
 		}
 		td button {
-			margin:4px;
-			height:100%;
-			width:100%;
+			border-radius: 5px;
+			background-color: rgba(220,220,220, 0.6);
+		    border: none;
+		    padding: 2px 15px;
+		    margin: 4px 0px;
+		    height: 100%;
+		    width: 100%;
+		    cursor:pointer;
+		}
+
+		td button:hover {
+			background-color: rgba(220,220,220, 0.8);
+		}
+
+		td button:active {
+			background-color: rgba(220,220,220, 1.0);
+		}
+
+		.operator {
+			background-color: rgba(0,0,0,0.6);
+			color:white;
+		}
+		.operator:hover {
+			background-color: rgba(0,0,0,0.8);
+		}
+		.operator:active {
+			background-color: rgba(0,0,0,1.0);
+		}
+
+		#reset {
+			background-color: rgba(189,0,0,0.6);
+			color:white;
+		}
+		#reset:hover {
+			background-color: rgba(189,0,0,0.8);
+		}
+		#reset:active {
+			background-color: rgba(189,0,0,1.0);
+		}
+
+		#equal {
+			background-color: rgba(139,195,74,0.6);
+			color:white;
+		}
+		#equal:hover {
+			background-color: rgba(139,195,74,0.8);
+		}
+		#equal:active {
+			background-color: rgba(139,195,74,1.0);
 		}
 	</style>
   </head>
@@ -77,28 +135,28 @@ TO DO
 			<td><button value="7" onclick="display(this.value)">7</button></td>
 		    <td><button value="8" onclick="display(this.value)">8</button></td>
 		    <td><button value="9" onclick="display(this.value)">9</button></td>
-		    <td><button value="/" onclick="display(this.value)">/</button></td>
+		    <td><button class="operator" value="/" onclick="display(this.value)">/</button></td>
 		</tr>
 		<tr>
 		  	<td><button value="4" onclick="display(this.value)">4</button></td>
 		    <td><button value="5" onclick="display(this.value)">5</button></td>
 		    <td><button value="6" onclick="display(this.value)">6</button></td>
-		    <td><button value="*" onclick="display(this.value)">*</button></td>
+		    <td><button class="operator" value="*" onclick="display(this.value)">*</button></td>
 		</tr>
 		<tr>
 		  	<td><button value="1" onclick="display(this.value)">1</button></td>
 		    <td><button value="2" onclick="display(this.value)">2</button></td>
 		    <td><button value="3" onclick="display(this.value)">3</button></td>
-		    <td><button value="-" onclick="display(this.value)">-</button></td>
+		    <td><button class="operator" value="-" onclick="display(this.value)">-</button></td>
 		</tr>
 		<tr>
 		  	<td><button value="0" onclick="display(this.value)">0</button></td>
 		    <td><button value="." onclick="display(this.value)">.</button></td>
-		    <td><button value="=" onclick="evalAns()">=</button></td>
-		    <td><button value="+" onclick="display(this.value)">+</button></td>
+		    <td><button id="equal" value="=" onclick="evalAns()">=</button></td>
+		    <td><button class="operator" value="+" onclick="display(this.value)">+</button></td>
 		</tr>
 		<tr>
-			<td id="reset" colspan="4"><button onclick="reset()">RESET</button></td>
+			<td colspan="4"><button id="reset" onclick="reset()">RESET</button></td>
 		</tr>
 	</table>
   </body>
@@ -109,13 +167,17 @@ TO DO
   	function display(value){
   		// console.log(value);
   		document.getElementById('display').insertAdjacentHTML('beforeend',value);
+  		cappingChar();
   	}
 
   	// Evaluate value from display + display answer
   	function evalAns(){
-  		// getting data to be calculated
+  		// evaluating data 
   		var solution = eval(document.getElementById('display').innerHTML);
+  		// displaying calculations
   		document.getElementById('display').innerHTML = solution;
+  		// Capping to a set number of characters
+  		cappingChar();
   	}
 
   	// Reset display
@@ -123,6 +185,17 @@ TO DO
   		document.getElementById('display').innerHTML='';
   	}
 
+  	// setting max character display
+  	function cappingChar(){
+  		// defininf limit of characters to be displayed
+  		var maxCharDisplay = 16;
+  		var displayString = document.getElementById('display').innerHTML;
+  		// check to see if the display exceeds max display. If so, the function removes the characters exceeding the limit
+  		if(displayString.length > maxCharDisplay){
+  			displayString = displayString.substring(0,maxCharDisplay);
+  			document.getElementById('display').innerHTML = displayString;
+  		}
+  	}
   </script>
 </html>
 
