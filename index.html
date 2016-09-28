@@ -89,12 +89,12 @@ TO DO
 		  	<td><button value="1" onclick="display(this.value)">1</button></td>
 		    <td><button value="2" onclick="display(this.value)">2</button></td>
 		    <td><button value="3" onclick="display(this.value)">3</button></td>
-		    <td><button value="4" onclick="display(this.value)">-</button></td>
+		    <td><button value="-" onclick="display(this.value)">-</button></td>
 		</tr>
 		<tr>
 		  	<td><button value="0" onclick="display(this.value)">0</button></td>
 		    <td><button value="." onclick="display(this.value)">.</button></td>
-		    <td><button value="=" onclick="eval()">=</button></td>
+		    <td><button value="=" onclick="evalAns()">=</button></td>
 		    <td><button value="+" onclick="display(this.value)">+</button></td>
 		</tr>
 		<tr>
@@ -111,15 +111,17 @@ TO DO
   		document.getElementById('display').insertAdjacentHTML('beforeend',value);
   	}
 
-
   	// Evaluate value from display + display answer
-
+  	function evalAns(){
+  		// getting data to be calculated
+  		var solution = eval(document.getElementById('display').innerHTML);
+  		document.getElementById('display').innerHTML = solution;
+  	}
 
   	// Reset display
   	function reset(){
   		document.getElementById('display').innerHTML='';
   	}
-
 
   </script>
 </html>
