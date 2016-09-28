@@ -22,36 +22,85 @@ NOTES
 3. style away
  -->
 
+<!-- 
+TO DO
+1. create html buttons within table
+	-operators + reset button
+	-display screen
+2. assign button to functions
+	- onclick render to display
+	- '=' to evaluate display string
+	- 'C' to reset by replacing display
+3. style away
+ -->
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>Simple Calculator</title>
+
+    <!-- Styles -->
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		table{
+			width:150px;
+			margin:100px auto;
+			border:2px solid grey;
+			padding:3px;
+		}
+		#display{
+			height:30px;
+			border:1px solid grey;
+		}
+		#reset{
+			height:30px;
+		}
+		td button {
+			margin:4px;
+			height:100%;
+			width:100%;
+		}
+	</style>
+
   </head>
 
   <body>
 
 	<table>
-	  <tr>
-	  	<td><button>7</button></td>
-	    <td><button>8</button></td>
-	    <td><button>9</button></td>
-	  </tr>
-	  <tr>
-	  	<td><button>4</button></td>
-	    <td><button>5</button></td>
-	    <td><button>6</button></td>
-	  </tr>
-	  <tr>
-	  	<td><button>1</button></td>
-	    <td><button>2</button></td>
-	    <td><button>3</button></td>
-	  </tr>
-	  <tr>
-	  	<td><button>0</button></td>
-	    <td><button>.</button></td>
-	    <td><button></button></td>
-	  </tr>
+		<tr>
+			<td id="display" colspan="4"></td>
+		</tr>
+		<tr>
+			<td><button>7</button></td>
+		    <td><button>8</button></td>
+		    <td><button>9</button></td>
+		    <td><button>/</button></td>
+		</tr>
+		<tr>
+		  	<td><button>4</button></td>
+		    <td><button>5</button></td>
+		    <td><button>6</button></td>
+		    <td><button>*</button></td>
+		</tr>
+		<tr>
+		  	<td><button>1</button></td>
+		    <td><button>2</button></td>
+		    <td><button>3</button></td>
+		    <td><button>-</button></td>
+		</tr>
+		<tr>
+		  	<td><button>0</button></td>
+		    <td><button>.</button></td>
+		    <td><button>=</button></td>
+		    <td><button>+</button></td>
+		</tr>
+		<tr>
+			<td id="reset" colspan="4"><button>RESET</button></td>
+		</tr>
 	</table>
 
   </body>
