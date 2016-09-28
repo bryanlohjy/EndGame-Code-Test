@@ -5,15 +5,11 @@ function centerElement(elementID, offsetFromCenter){
 	var calcHeight = calc.clientHeight;
 	var marg = (h-calcHeight)/2 + offsetFromCenter;
 	calc.style.marginTop = marg+"px"; 
-	// console.log(h);
-	// console.log(calc);
-	// console.log(calcHeight);
-	// console.log(marg);
 }
 
 centerElement('elementWrap',0);
 
-// recenter on window resize
+// recenter div on window resize
 window.onresize = function() {
 	centerElement('elementWrap',0);
 };

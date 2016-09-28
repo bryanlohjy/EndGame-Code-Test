@@ -1,53 +1,12 @@
-<!-- 
-INSTRUCTIONS
-1. Create index.html in your favourite text editor.  Your JavaScript can either be in a separate .js file, or it can be contained in the index.html page.
-2. Display the numbers 0-9
-3. Display the operators
-4. Display the results
-5. Make it work like a calculator J
-6. Include a reset button
-7. Style it as you best see fit 
--->
-
-<!-- 
-NOTES 
-1. create html buttons within table
-	-numbers
-	-operators + reset button
-	-display screen
-2. assign button to functions
-	- onclick render to display
-	- '=' to evaluate display string
-	- 'C' to reset by replacing display
-3. style away
- -->
-
-<!-- 
-TO DO
-1. create html buttons within table
-	-operators + reset button
-	-display screen
-2. assign button to functions
-	- onclick render to display
-	- '=' to evaluate display string
-	- 'C' to reset by replacing display
-3. style away
- -->
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Simple Calculator</title>
+    <title>Calculator for EndGame</title>
     <!-- Loading Font -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
-
 	<!-- Styles-->
 	<link href="css/styles.css" rel="stylesheet">
-    <!-- Styles -->
-	<style>
-
-	</style>
   </head>
 
   <body>
@@ -78,14 +37,19 @@ TO DO
 			<tr>
 			  	<td><button value="0" onclick="display(this.value)">0</button></td>
 			    <td><button value="." onclick="display(this.value)">.</button></td>
-			    <td><button id="equal" value="=" onclick="evalAns()">=</button></td>
+			    <td><button id="reset" onclick="reset()">C</button></td>
 			    <td><button class="operator" value="+" onclick="display(this.value)">+</button></td>
 			</tr>
 			<tr>
-				<td colspan="4"><button id="reset" onclick="reset()">RESET</button></td>
+				<td colspan="4"><button id="equal" value="=" onclick="evalAns()">=</button></td>
 			</tr>
 		</table>
-	  	<h2 id="myHeading">Hey EndGame,<br>This is my calculator.<br>Enjoy</h2>
+		
+	  	<h2 id="myHeading">
+	  	Hey EndGame,<br>
+	  	This is my calculator.<br>
+	  	Enjoy
+	  	</h2>
 	</div>
   </body>
 

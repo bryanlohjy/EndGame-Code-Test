@@ -15,16 +15,12 @@ table{
 	width:150px;
 	margin:0 auto;
 	padding:3px;
-
 }
 #display{
 	height:30px;
 	background-color: rgba(0,0,0,0.6);
 	color:white;
 	text-align: right;
-}
-#reset{
-	height:30px;
 }
 td button {
 	border-radius: 5px;
@@ -36,15 +32,12 @@ td button {
     width: 100%;
     cursor:pointer;
 }
-
 td button:hover {
 	background-color: rgba(220,220,220, 0.8);
 }
-
 td button:active {
 	background-color: rgba(220,220,220, 1.0);
 }
-
 .operator {
 	background-color: rgba(0,0,0,0.6);
 	color:white;
@@ -55,7 +48,6 @@ td button:active {
 .operator:active {
 	background-color: rgba(0,0,0,1.0);
 }
-
 #reset {
 	background-color: rgba(189,0,0,0.6);
 	color:white;
@@ -66,7 +58,6 @@ td button:active {
 #reset:active {
 	background-color: rgba(189,0,0,1.0);
 }
-
 #equal {
 	background-color: rgba(139,195,74,0.6);
 	color:white;
@@ -77,11 +68,11 @@ td button:active {
 #equal:active {
 	background-color: rgba(139,195,74,1.0);
 }
-
 #myHeading {
 	color:white;
 	text-align: center;
 	padding:50px 0;
-	width:350px;
+	width:90%;
+	max-width:350px;
 	margin: 0 auto;
 }

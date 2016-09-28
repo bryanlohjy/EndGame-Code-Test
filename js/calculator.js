@@ -1,6 +1,5 @@
 // Render values to display
 function display(value){
-	// console.log(value);
 	document.getElementById('display').insertAdjacentHTML('beforeend',value);
 	cappingChar();
 }
@@ -11,7 +10,7 @@ function evalAns(){
 	var solution = eval(document.getElementById('display').innerHTML);
 	// displaying calculations
 	document.getElementById('display').innerHTML = solution;
-	// Capping to a set number of characters
+	// capping to a set number of characters
 	cappingChar();
 }
 
@@ -22,10 +21,11 @@ function reset(){
 
 // setting max character display
 function cappingChar(){
-	// defininf limit of characters to be displayed
+	// defining limit of characters to be displayed
 	var maxCharDisplay = 16;
 	var displayString = document.getElementById('display').innerHTML;
-	// check to see if the display exceeds max display. If so, the function removes the characters exceeding the limit
+
+	// check to see if the display exceeds max character display limit. If so, the function removes the characters exceeding the limit
 	if(displayString.length > maxCharDisplay){
 		displayString = displayString.substring(0,maxCharDisplay);
 		document.getElementById('display').innerHTML = displayString;
